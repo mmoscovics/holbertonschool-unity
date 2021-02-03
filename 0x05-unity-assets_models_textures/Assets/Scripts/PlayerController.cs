@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float move_speed = 10f;
+    public float move_speed = 20f;
     public float move_h;
     public float move_v;
     public float move_y;
-    public float gravity = 9.8f;
+    public float gravity = 9f;
     public float jump_speed = 3f;
 
     private CharacterController controller;

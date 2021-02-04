@@ -10,11 +10,12 @@ public class CameraController : MonoBehaviour
     public float rotate_h;
     public float rotate_v;
     public float cam_y;
-    public float cam_x;
 
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         offset = target.position - transform.position;
     }
 
@@ -23,20 +24,15 @@ public class CameraController : MonoBehaviour
     {
         //Get the position of the mouse & rotate the target
         rotate_h = Input.GetAxis("Mouse X") * rotate_speed;
-        target.Rotate(0, rotate_h, 0);
-
-        rotate_v = Input.GetAxis("Mouse Y") * rotate_speed;
-        target.Rotate(-rotate_v, 0, 0);
+        rotate_v += Input.GetAxis("Mouse Y") * rotate_speed;
+        rotate_v = Mathf.Clamp(rotate_v, -30, 80);
 
         //Move the camera based on the current rotation of the target & the original offset
+        target.Rotate(0, rotate_h, 0);
         cam_y = target.eulerAngles.y;
-        cam_x = target.eulerAngles.x;
 
-        Quaternion cam_rotate = Quaternion.Euler(cam_x, cam_y, 0);
+        Quaternion cam_rotate = Quaternion.Euler(-rotate_v, cam_y, 0);
         transform.position = target.position - (cam_rotate * offset);
-
-        //transform.position = target.position - offset;
-
         transform.LookAt(target);
     }
 }

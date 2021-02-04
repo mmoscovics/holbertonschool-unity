@@ -25,7 +25,7 @@ public class CameraController : MonoBehaviour
         //Get the position of the mouse & rotate the target
         rotate_h = Input.GetAxis("Mouse X") * rotate_speed;
         rotate_v += Input.GetAxis("Mouse Y") * rotate_speed;
-        rotate_v = Mathf.Clamp(rotate_v, -30, 80);
+        rotate_v = Mathf.Clamp(rotate_v, -50, 20);
 
         //Move the camera based on the current rotation of the target & the original offset
         target.Rotate(0, rotate_h, 0);

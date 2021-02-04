@@ -35,6 +35,14 @@ public class PlayerController : MonoBehaviour
                 move_y = jump_speed;
             }
         }
+        if (controller.transform.position.y <= -30)
+        {
+            controller.enabled = false;
+            transform.position = new Vector3(0, 30, 0);
+            controller.enabled = true;
+        }
+
+        direction = (transform.forward * move_v) + (transform.right * move_h);
 
         move_y -= gravity * Time.deltaTime;
         direction.y = move_y;

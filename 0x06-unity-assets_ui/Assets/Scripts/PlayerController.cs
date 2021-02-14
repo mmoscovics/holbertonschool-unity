@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float move_v;
     public float move_y;
     public float gravity = 9f;
-    public float jump_speed = 3f;
+    public float jump_speed = 3.5f;
 
     private CharacterController controller;
 

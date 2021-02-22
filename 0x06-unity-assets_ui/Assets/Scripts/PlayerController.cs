@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public float gravity = 9f;
     public float jump_speed = 3.5f;
 
+    public PauseMenu pauseMenu;
+
     private CharacterController controller;
 
     // Start is called before the first frame update
@@ -48,5 +50,10 @@ public class PlayerController : MonoBehaviour
         direction.y = move_y;
 
         controller.Move(direction * move_speed * Time.deltaTime);
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            pauseMenu.Pause();
+        }
     }
 }

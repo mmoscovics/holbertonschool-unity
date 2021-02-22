@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
 
     public void Options()
     {
+        PlayerPrefs.SetInt("lastScene", 0);
         SceneManager.LoadScene(4);
     }
 

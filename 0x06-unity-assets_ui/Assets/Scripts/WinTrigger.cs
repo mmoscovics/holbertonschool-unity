@@ -7,7 +7,9 @@ public class WinTrigger : MonoBehaviour
 {
     public Timer timer;
     public Text text;
+    public Text fin_time;
     public GameObject player;
+    public GameObject win_canvas;
 
     void Start()
     {
@@ -19,5 +21,8 @@ public class WinTrigger : MonoBehaviour
         timer.enabled = false;
         text.fontSize = 60;
         text.color = Color.green;
+        win_canvas.SetActive(true);
+        fin_time.text = text.text;
+        timer.Win();
     }
 }

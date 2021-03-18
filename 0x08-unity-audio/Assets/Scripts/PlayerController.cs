@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float jump_speed = 3.5f;
 
     public PauseMenu pauseMenu;
+    public Animator animator;
 
     private CharacterController controller;
 
@@ -55,5 +56,13 @@ public class PlayerController : MonoBehaviour
         {
             pauseMenu.Pause();
         }
+
+		if ((Input.GetKey("w") || Input.GetKey("s")) && controller.isGrounded)
+			animator.SetBool("Running", true);
+		else
+			animator.SetBool("Running", false);
+
+		if (Input.GetButtonDown("Jump") && controller.isGrounded)
+			animator.SetTrigger("Jump");
     }
 }

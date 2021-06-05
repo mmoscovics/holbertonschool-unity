@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public GameObject sBG;
     public GameObject sT;
     public int scoreNum;
+    public GameObject hsBG;
+    public GameObject hsT;
+    public int highScore = 0;
     public GameObject aBG;
     public GameObject aT;
     public int ammoNum;
@@ -64,15 +67,22 @@ public class GameManager : MonoBehaviour
                 TargetSetup();
                 Debug.Log("Selected Plane");
             }
-        if (setAmmo && setAmmo.transform.position.y < cPosition.y)
+        if (setAmmo && setAmmo.transform.position.y < cPosition.y + 0.1f)
         {
             Destroy(setAmmo);
             AmmoSetup();
         }
-        if (ammoNum == 0)
+        if (ammoNum < 0)
         {
             Destroy(setAmmo);
             paButton.SetActive(true);
+            sBG.SetActive(false);
+            hsBG.SetActive(true);
+        }
+        if (highScore < scoreNum)
+        {
+            highScore = scoreNum;
+            hsT.GetComponent<Text>().text = scoreNum.ToString();
         }
     }
 
@@ -93,6 +103,7 @@ public class GameManager : MonoBehaviour
         rButton.SetActive(true);
         sBG.SetActive(true);
         aBG.SetActive(true);
+        hsBG.SetActive(false);
         sPlane.GetComponent<MeshRenderer>().enabled = false;
         sPlane.GetComponent<ARPlaneMeshVisualizer>().enabled = false;
         sPosition = new Vector3(Screen.width / 2, Screen.height / 2, Camera.main.nearClipPlane + 0.5f);

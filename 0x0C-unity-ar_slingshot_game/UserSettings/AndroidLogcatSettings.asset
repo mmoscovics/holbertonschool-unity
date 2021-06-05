@@ -1,53 +1,65 @@
 {
     "m_SelectedDeviceId": "972AY0Z4BE",
     "m_SelectedPackage": {
-        "deviceId": "",
-        "name": "",
-        "processId": 0,
+        "deviceId": "972AY0Z4BE",
+        "name": "com.DefaultCompanyunityar_slingshot_game",
+        "processId": 31180,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "972AY0Z4BE",
+            "name": "com.DefaultCompanyunityar_slingshot_game",
+            "processId": 25472,
+            "exited": true
+        },
+        {
+            "deviceId": "972AY0Z4BE",
+            "name": "com.DefaultCompanyunityar_slingshot_game",
+            "processId": 26304,
+            "exited": true
+        },
+        {
+            "deviceId": "972AY0Z4BE",
+            "name": "com.DefaultCompanyunityar_slingshot_game",
+            "processId": 27059,
+            "exited": true
+        },
+        {
+            "deviceId": "972AY0Z4BE",
+            "name": "com.DefaultCompanyunityar_slingshot_game",
+            "processId": 27493,
+            "exited": true
+        },
+        {
+            "deviceId": "972AY0Z4BE",
             "name": "com.google.android.apps.nexuslauncher",
-            "processId": 28921,
+            "processId": 22719,
             "exited": false
         },
         {
             "deviceId": "972AY0Z4BE",
             "name": "com.DefaultCompanyunityar_slingshot_game",
-            "processId": 8496,
-            "exited": true
-        },
-        {
-            "deviceId": "972AY0Z4BE",
-            "name": "com.DefaultCompanyunityar_slingshot_game",
-            "processId": 9571,
-            "exited": true
-        },
-        {
-            "deviceId": "972AY0Z4BE",
-            "name": "com.DefaultCompanyunityar_slingshot_game",
-            "processId": 10525,
-            "exited": true
-        },
-        {
-            "deviceId": "972AY0Z4BE",
-            "name": "com.DefaultCompanyunityar_slingshot_game",
-            "processId": 11746,
-            "exited": true
-        },
-        {
-            "deviceId": "972AY0Z4BE",
-            "name": "com.DefaultCompanyunityar_slingshot_game",
-            "processId": 13189,
+            "processId": 29367,
             "exited": true
         },
         {
             "deviceId": "972AY0Z4BE",
             "name": "com.snapchat.android",
-            "processId": 12119,
+            "processId": 27833,
+            "exited": false
+        },
+        {
+            "deviceId": "972AY0Z4BE",
+            "name": "com.DefaultCompanyunityar_slingshot_game",
+            "processId": 29873,
+            "exited": false
+        },
+        {
+            "deviceId": "972AY0Z4BE",
+            "name": "com.DefaultCompanyunityar_slingshot_game",
+            "processId": 31180,
             "exited": false
         }
     ],

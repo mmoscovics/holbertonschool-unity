@@ -13,10 +13,6 @@ public class AmmoManager : MonoBehaviour
     public Vector2 direction;
     public Bounds bounds;
     public ARPlane plane;
-    public Transform anchor;
-    public Vector3 pVelocity;
-
-    LineRenderer lRenderer;
 
     private Vector2 sPosition;
     private GameManager gm;
@@ -29,7 +25,6 @@ public class AmmoManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
         plane = GameManager.sPlane;
-        lRenderer = GetComponent<LineRenderer>();
         //bounds = GameManager.sPlane.GetComponent<MeshCollider>().bounds;
         //arc = GameObject.Find("Arc").GetComponentInChildren<LaunchArc>();
         ready = true;
@@ -46,17 +41,14 @@ public class AmmoManager : MonoBehaviour
                 {
                     case TouchPhase.Began:
                         sPosition = new Vector2(touch.position.x, touch.position.y);
-                        lRenderer.enabled = true;
                         break;
                     case TouchPhase.Ended:
                         rb.useGravity = true;
                         direction = new Vector2(touch.position.x, touch.position.y);
                         lvelocity = direction - sPosition;
                         rb.constraints = RigidbodyConstraints.None;
-                        pVelocity = new Vector3(-lvelocity.x, -lvelocity.y, -lvelocity.y);
-                        rb.AddForce(pVelocity);
+                        rb.AddForce(new Vector3(-lvelocity.x, -lvelocity.y, -lvelocity.y));
                         rb.transform.parent = null;
-                        lRenderer.enabled = false;
                         gm.UpdateAmmo();
                         ready = false;
                         break;

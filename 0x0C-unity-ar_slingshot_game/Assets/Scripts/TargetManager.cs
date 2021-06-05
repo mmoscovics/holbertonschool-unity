@@ -39,7 +39,7 @@ public class TargetManager : MonoBehaviour
     void MoveTarget()
     {
         velocity += speed * Time.deltaTime;
-        hussle = new Vector3(Mathf.Sin(velocity) * distance, bounds.center.y + 0.55f, Mathf.Cos(velocity) * distance);
+        hussle = new Vector3(Mathf.Sin(velocity) * distance, bounds.center.y + 0.5f, Mathf.Cos(velocity) * distance);
         transform.position = sPosition + hussle;
     }
 }

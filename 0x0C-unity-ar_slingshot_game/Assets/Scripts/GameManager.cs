@@ -21,8 +21,12 @@ public class GameManager : MonoBehaviour
     public GameObject sT;
     public int scoreNum;
     public GameObject hsBG;
-    public GameObject hsT;
-    public int highScore = 0;
+    public GameObject hsT1;
+    public GameObject hsT2;
+    public GameObject hsT3;
+    public int highScore1 = 0;
+    public int highScore2 = 0;
+    public int highScore3 = 0;
     public GameObject aBG;
     public GameObject aT;
     public int ammoNum;
@@ -79,11 +83,8 @@ public class GameManager : MonoBehaviour
             sBG.SetActive(false);
             hsBG.SetActive(true);
         }
-        if (highScore < scoreNum)
-        {
-            highScore = scoreNum;
-            hsT.GetComponent<Text>().text = scoreNum.ToString();
-        }
+        if (scoreNum > 0)
+            ScoreCheck();
     }
 
     void DisablePlanes(TrackableId id)
@@ -168,5 +169,31 @@ public class GameManager : MonoBehaviour
     public void UpdateScore()
     {
         sT.GetComponent<Text>().text = scoreNum.ToString();
+    }
+
+    void ScoreCheck()
+    {
+        int temp1 = highScore1;
+        int temp2 = highScore2;
+
+        if (scoreNum > highScore3)
+        {
+            highScore3 = scoreNum;
+            hsT3.GetComponent<Text>().text = highScore3.ToString();
+            if (scoreNum > highScore2)
+            {
+                highScore3 = temp2;
+                hsT3.GetComponent<Text>().text = highScore3.ToString();
+                highScore2 = scoreNum;
+                hsT2.GetComponent<Text>().text = highScore2.ToString();
+                if (scoreNum > highScore1)
+                {
+                    highScore2 = temp1;
+                    hsT2.GetComponent<Text>().text = highScore2.ToString();
+                    highScore1 = scoreNum;
+                    hsT1.GetComponent<Text>().text = highScore1.ToString();
+                }
+            }
+        }
     }
 }
